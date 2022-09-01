@@ -9,8 +9,7 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [
-    ],
+    "overrides": [],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -36,6 +35,9 @@
         "semi": [
             "error",
             "always"
+        ],
+        "@typescript-eslint/no-var-requires": [
+            "off"
         ]
     }
 }
