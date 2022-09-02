@@ -1,22 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Type {
-  isLoadingTracks: boolean;
+  likedTrackTitle?: string;
+  ratings: { [title: string]: number; };
 }
 
 const initialState: Type = {
-	isLoadingTracks: false,
+	ratings: {},
 };
 
 const tracksSlice = createSlice({
 	name: "tracksSlice",
 	initialState,
 	reducers: {
-		setIsLoadingTracks(state, action: PayloadAction<boolean>) {
-			state.isLoadingTracks = action.payload;
+		setLikedTrackTitle(state, action: PayloadAction<string>) {
+			state.likedTrackTitle = action.payload;
+		},
+		setRating(state, action: PayloadAction<{ title: string, rating: number }>) {
+			state.ratings[action.payload.title] = action.payload.rating;
 		},
 	},
 });
 
 export default tracksSlice.reducer;
-export const { setIsLoadingTracks } = tracksSlice.actions;
+export const { setLikedTrackTitle, setRating } = tracksSlice.actions;
