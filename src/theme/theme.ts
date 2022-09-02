@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components/native";
-import { normalize } from "../utils";
+import { normalize } from "../utils/responsive";
 
 import { colorslight, colorsNeutral } from "./colors";
 

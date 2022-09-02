@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components/native";
 import { NavigationContainer, useNavigationContainerRef } from "@react-navigation/native";
 import { QueryClientProvider } from "react-query";
 import { RouteListBase } from "../navigation";
-import { lightTheme } from "../theme";
+import { lightTheme } from "../theme/theme";
 import { store } from "../redux";
 import { queryClient } from "../api";
 
