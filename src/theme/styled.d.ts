@@ -13,26 +13,10 @@ declare module "styled-components/native" {
     colors: {
       screen: {
         default: string;
+        dark: string;
       };
 
       card: string;
-
-      indicator: {
-        default: string;
-        active: string;
-      };
-
-      icon: {
-        default: string;
-        info: string;
-        success: string;
-        error: string;
-      };
-
-      button: {
-        primary: string;
-        outlined: string;
-      };
 
       text: {
         default: string;

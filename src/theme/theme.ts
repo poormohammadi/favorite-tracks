@@ -15,26 +15,10 @@ export const lightTheme: DefaultTheme = {
 	colors: {
 		screen: {
 			default: colorslight.grey.lightest,
+			dark: colorslight.grey.darkest,
 		},
 
 		card: colorsNeutral.white,
-
-		indicator: {
-			default: colorslight.grey.light,
-			active: colorslight.blue.main,
-		},
-
-		icon: {
-			default: colorslight.grey.darker,
-			info: colorsNeutral.white,
-			success: colorsNeutral.white,
-			error: colorsNeutral.white,
-		},
-
-		button: {
-			primary: colorslight.blue.main,
-			outlined: colorsNeutral.white,
-		},
 
 		text: {
 			default: colorslight.grey.dark,
