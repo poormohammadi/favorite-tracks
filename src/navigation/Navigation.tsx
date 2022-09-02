@@ -8,7 +8,10 @@ const Stack = createNativeStackNavigator();
 
 export const Navigation = () => (
 	<Stack.Navigator initialRouteName="trackList" screenOptions={screenOption}>
-		<Stack.Screen name="trackList" component={TrackList} />
-		<Stack.Screen name="trackDetails" component={TrackDetails} />
+		<Stack.Screen name="trackList" options={{ title: "Track List" }} component={TrackList} />
+		<Stack.Screen
+			name="trackDetails"
+			options={{ title: "Track Details" }}
+			component={TrackDetails} />
 	</Stack.Navigator>
 );
