@@ -23,7 +23,7 @@ test("Star press works correctly", () => {
 	expect(mockFn).toBeCalledWith(3);
 });
 
-test("Star press works correctly", () => {
+test("Star disabled works correctly", () => {
 	const mockFn = jest.fn();
 	const { getAllByTestId } = render(<Rating disabled onRatingChange={mockFn} />);
 	const stars = getAllByTestId("star");

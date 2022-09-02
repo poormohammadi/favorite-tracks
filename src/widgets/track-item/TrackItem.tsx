@@ -6,7 +6,7 @@ import { ActionRow, Card, CoverImage, StyledLikeButton, TrackRating } from "./Tr
 type TrackItemProps = {
     name?: string;
     liked?: boolean;
-    onLikeToggle: (v: boolean) => void;
+    onLikeToggle?: (v: boolean) => void;
     image?: string;
     onPress?: () => void;
     disableRating?: boolean;
@@ -23,7 +23,7 @@ export const TrackItem = ({ onLikeToggle, name, liked, image, disableRating, rat
 				<Typography variant="title">
 					{name}
 				</Typography>
-				<StyledLikeButton liked={liked} onToggle={onLikeToggle} />
+				<StyledLikeButton liked={liked} onToggle={onLikeToggle} testID="like-button" />
 			</ActionRow>
 		</Card>
 	);
