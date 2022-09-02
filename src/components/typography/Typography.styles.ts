@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const Tiny = styled.Text`
-  font-family: "Arial";
+  font-family: "System";
   color: ${(props) => props.theme.colors.text.default};
   font-size: ${(props) => props.theme.fontSize.tiny};
 `;
