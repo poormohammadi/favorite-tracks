@@ -1,16 +1,17 @@
-import Slider from "@react-native-community/slider";
-import React, { useEffect } from "react";
-import { TouchableOpacity } from "react-native";
+import React from "react";
+
 import { LikeButton, Rating } from "../../components";
 import { setLikedTrackTitle, setRating, useAppDispatch, useAppSelector } from "../../redux";
-
 import { formatSecondsAsDurationString, useAudioPlayer, useRoute } from "../../utils";
-import { Container, Cover, Duration, ActionRow } from "./TrackDetails.styles";
+import { ActionRow, Container, Cover, Duration, PlayButton, PlayIcon, StyledSlider } from "./TrackDetails.styles";
+
+const PLAY_IMAGE = require("../../../assets/icons/play.png");
+const PAUSE_IMAGE = require("../../../assets/icons/pause.png");
 
 export const TrackDetails = () => {
 	const { params } = useRoute<"trackDetails">();
 	const track = params.data;
-	const { playSound, playbackStatus, playFromPosition } = useAudioPlayer({
+	const { playSound, playbackStatus, pauseSound, playFromPosition } = useAudioPlayer({
 		audioUrl: track.audio
 	});
 
@@ -18,25 +19,29 @@ export const TrackDetails = () => {
 	const ratings = useAppSelector((state) => state.tracksStates.ratings);
 	const likedTrackTitle = useAppSelector((state) => state.tracksStates.likedTrackTitle);
 
-	useEffect(() => {
-		console.log(playbackStatus);
-	}, [playbackStatus]);
-
 	return (
 		<Container>
-			<TouchableOpacity onPress={playSound}>
+			<>
 				<Cover source={{ uri: track.cover }} />
-			</TouchableOpacity>
+				<PlayButton onPress={playbackStatus?.isPlaying ? pauseSound : playSound}>
+					<PlayIcon source={playbackStatus?.isPlaying ? PAUSE_IMAGE : PLAY_IMAGE} />
+				</PlayButton>
+			</>
 			<ActionRow>
-				<Rating rating={ratings[track.title]} onRatingChange={(rating) => dispatch(setRating({ title: track.title, rating }))} />
-				<LikeButton liked={likedTrackTitle === track.title} onToggle={(liked?: boolean) => dispatch(setLikedTrackTitle(liked ? track.title : ""))} />
+				<Rating
+					rating={ratings[track.title]}
+					onRatingChange={(rating) => dispatch(setRating({ title: track.title, rating }))}
+				/>
+				<LikeButton
+					liked={likedTrackTitle === track.title}
+					onToggle={(liked?: boolean) => dispatch(setLikedTrackTitle(liked ? track.title : ""))}
+				/>
 			</ActionRow>
-			<Slider
-				style={{ width: "100%", height: 40 }}
+			<StyledSlider
 				minimumValue={0}
 				maximumValue={playbackStatus?.playableDurationMillis}
 				value={playbackStatus?.positionMillis}
-				onValueChange={playFromPosition}
+				onSlidingComplete={playFromPosition}
 				minimumTrackTintColor="#FFFFFF"
 				maximumTrackTintColor="#000000"
 			/>
