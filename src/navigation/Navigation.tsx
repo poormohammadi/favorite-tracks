@@ -11,7 +11,7 @@ export const Navigation = () => (
 		<Stack.Screen name="trackList" options={{ title: "Track List" }} component={TrackList} />
 		<Stack.Screen
 			name="trackDetails"
-			options={{ title: "Track Details" }}
+			options={route => ({ title: (route.route?.params as any).title || "Track Details" })}
 			component={TrackDetails} />
 	</Stack.Navigator>
 );
