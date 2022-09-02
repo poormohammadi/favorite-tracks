@@ -26,7 +26,7 @@ export const TrackList = () => {
 						onLikeToggle={setLiked}
 						rating={index + 2}
 						disableRating
-						onPress={() => navigation.navigate("trackDetails")}
+						onPress={() => navigation.navigate("trackDetails", { data: item })}
 					/>
 				}
 			/>

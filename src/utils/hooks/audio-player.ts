@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Audio, AVPlaybackStatus } from "expo-av";
+import { Audio, AVPlaybackStatusSuccess } from "expo-av";
 
 type AudioPlayerProps = {
 	audioUrl?: string;
@@ -7,7 +7,7 @@ type AudioPlayerProps = {
 }
 export const useAudioPlayer = ({ audioUrl }: AudioPlayerProps) => {
 	const [sound, setSound] = useState<Audio.Sound>();
-	const [playbackStatus, setPlaybackStatus] = useState<AVPlaybackStatus>();
+	const [playbackStatus, setPlaybackStatus] = useState<AVPlaybackStatusSuccess>();
 	const [isLoading, setIsLoading] = useState(false);
 
 	let interval: NodeJS.Timer;
@@ -15,7 +15,7 @@ export const useAudioPlayer = ({ audioUrl }: AudioPlayerProps) => {
 	const playSound = useCallback(async () => {
 		if (sound) {
 			await sound.playAsync();
-			sound.setOnPlaybackStatusUpdate(setPlaybackStatus);
+			sound.setOnPlaybackStatusUpdate(setPlaybackStatus as never);
 		}
 	}, [sound]);
 
@@ -41,6 +41,12 @@ export const useAudioPlayer = ({ audioUrl }: AudioPlayerProps) => {
 		loadSound();
 	}, []);
 
+	const playFromPosition = useCallback((seconds: number) => {
+		if (sound) {
+			sound.playFromPositionAsync(seconds);
+		}
+	}, [sound]);
+
 	useEffect(() => {
 		return sound
 			? () => {
@@ -50,5 +56,5 @@ export const useAudioPlayer = ({ audioUrl }: AudioPlayerProps) => {
 			: undefined;
 	}, [sound]);
 
-	return { playSound, isLoading, playbackStatus };
+	return { playSound, isLoading, playbackStatus, playFromPosition };
 };
