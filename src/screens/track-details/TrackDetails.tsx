@@ -42,8 +42,6 @@ export const TrackDetails = () => {
 				maximumValue={playbackStatus?.playableDurationMillis}
 				value={playbackStatus?.positionMillis}
 				onSlidingComplete={playFromPosition}
-				minimumTrackTintColor="#FFFFFF"
-				maximumTrackTintColor="#000000"
 			/>
 			<Duration variant="subtitle">
 				{`${formatMilliSecondsAsDurationString(
