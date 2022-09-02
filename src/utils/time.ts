@@ -1,4 +1,4 @@
-export const formatSecondsAsDurationString = (milliSeconds: number) => {
+export const formatMilliSecondsAsDurationString = (milliSeconds: number) => {
 	if (!milliSeconds) {
 		return "00:00";
 	}

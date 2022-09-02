@@ -35,7 +35,7 @@ export const useAudioPlayer = ({ audioUrl }: AudioPlayerProps) => {
 			// Ideally this useEffect should be removed
 			interval = setInterval(() => {
 				audio.current.getStatusAsync();
-			}, 200);
+			}, 50);
 		}
 	}, [audio.current]);
 

@@ -2,7 +2,7 @@ import React from "react";
 
 import { LikeButton, Rating } from "../../components";
 import { setLikedTrackTitle, setRating, useAppDispatch, useAppSelector } from "../../redux";
-import { formatSecondsAsDurationString, useAudioPlayer, useRoute } from "../../utils";
+import { formatMilliSecondsAsDurationString, useAudioPlayer, useRoute } from "../../utils";
 import { ActionRow, Container, Cover, Duration, PlayButton, PlayIcon, StyledSlider } from "./TrackDetails.styles";
 
 const PLAY_IMAGE = require("../../../assets/icons/play.png");
@@ -46,7 +46,11 @@ export const TrackDetails = () => {
 				maximumTrackTintColor="#000000"
 			/>
 			<Duration variant="subtitle">
-				{`${formatSecondsAsDurationString(playbackStatus?.positionMillis)} / ${formatSecondsAsDurationString(track.totalDurationMs)}`}
+				{`${formatMilliSecondsAsDurationString(
+					playbackStatus?.positionMillis
+				)} / ${formatMilliSecondsAsDurationString(
+					track.totalDurationMs
+				)}`}
 			</Duration>
 
 		</Container>

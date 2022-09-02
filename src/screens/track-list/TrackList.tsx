@@ -27,16 +27,16 @@ export const TrackList = () => {
 						onRefresh={refetch}
 					/>
 				}
-				renderItem={({ item }) =>
+				renderItem={({ item: track }) =>
 					<TrackItem
-						image={item.cover}
-						key={item.title}
-						name={item.title}
-						liked={likedTrackTitle === item.title}
-						onLikeToggle={(liked?: boolean) => dispatch(setLikedTrackTitle(liked ? item.title : ""))}
-						rating={ratings[item.title]}
+						image={track.cover}
+						key={track.title}
+						name={track.title}
+						liked={likedTrackTitle === track.title}
+						onLikeToggle={(liked?: boolean) => dispatch(setLikedTrackTitle(liked ? track.title : ""))}
+						rating={ratings[track.title]}
 						disableRating
-						onPress={() => navigation.navigate("trackDetails", { data: item, title: item.title })}
+						onPress={() => navigation.navigate("trackDetails", { data: track, title: track.title })}
 					/>
 				}
 			/>

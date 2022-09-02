@@ -14,8 +14,8 @@ export const lightTheme: DefaultTheme = {
 	},
 	colors: {
 		screen: {
-			default: colorslight.grey.lightest,
-			dark: colorslight.grey.darkest,
+			default: colorslight.grey.light,
+			dark: colorslight.grey.darker,
 		},
 
 		card: colorsNeutral.white,

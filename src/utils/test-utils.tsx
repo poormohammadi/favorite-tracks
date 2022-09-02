@@ -34,5 +34,4 @@ const customRender = (ui: ReactElement, options?: Omit<never, "queries">) =>
 	render(ui, { wrapper: AllTheProviders, ...options });
 
 export * from "@testing-library/react-native";
-const isTestMode = () => process.env.JEST_WORKER_ID !== undefined;
-export { customRender as render, isTestMode };
+export { customRender as render };

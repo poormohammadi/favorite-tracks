@@ -1,15 +1,8 @@
 import { Dimensions, PixelRatio } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
-let screenWidth = Dimensions.get("window")?.width;
-if (screenWidth == null) {
-	screenWidth = 0;
-}
-
-let screenHeight = Dimensions.get("window")?.height;
-if (screenHeight == null) {
-	screenHeight = 0;
-}
+const screenWidth = Dimensions.get("window")?.width || 0;
+const screenHeight = Dimensions.get("window")?.height || 0;
 
 function hp(heightPercent: number | string) {
 	const elemHeight = typeof heightPercent === "number" ? heightPercent : parseFloat(heightPercent);

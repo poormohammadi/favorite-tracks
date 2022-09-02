@@ -8,7 +8,7 @@ export const Tiny = styled.Text`
 
 export const Title = styled(Tiny)`
   font-size: ${(props) => props.theme.fontSize.large};
-  line-height: ${(props) => props.theme.normalize(36)}px;
+  line-height: ${(props) => props.theme.normalize(28)}px;
   color: ${(props) => props.theme.colors.text.prominent};
 `;
 

@@ -25,6 +25,7 @@ export const ActionRow = styled.View`
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	padding-vertical: 10px;
 `;
 
 export const StyledLikeButton = styled(LikeButton)`
