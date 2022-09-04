@@ -20,6 +20,11 @@ This project is a small one but I tried to make a structure of a larger project 
 
 And some developer tools like ESLint and Jest.
 
+### Notes
+
+- I tried to use meaningful commit messages and commit the code step by step.
+- Regarding the API, each item didn't have a unique id so I assumed the track title to be the unique identifier in the list.
+
 ## Run
 
 - Make sure you have setup Expo requirements
