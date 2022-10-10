@@ -1,14 +1,14 @@
 # Favorite Tracks
 
-1. Fetch the content of the manifest file<sup>1</sup> and show it in a scrollable list. (support reloading the manifest file).
+1. Fetch the content of the manifest file and show it in a scrollable list. (support reloading the manifest file).
    - Each tile shows a non interactive rating element displayed as stars
    - Each tile shows an interactive element to set the song as a favorite. There can only be one favorite set. As soon as a song is set as favorite, all others are set to non-favorite 
 2. Upon clicking on one of the list entries, the application shall navigate to a new screen
 3. This new screen displays the content of the selected element. Additionally it shows:
    - A play button on top of the cover image which starts / stops the playback of the associated audio file
    - Audio playback control (load, play, pause and seek)
-   - A position slider which updates its position depending on the position of the currently playing audio. It should also be able to control the current audio position with this slider<sup>2</sup>
-   - The current play time and the audio duration<sup>2</sup> 
+   - A position slider which updates its position depending on the position of the currently playing audio. It should also be able to control the current audio position with this slider
+   - The current play time and the audio duration
    - The interactive rating element displayed as stars. Rating can be set here
    - The interactive favorite element to set the song as a favorite. (As above, there can only be one favorite set. As soon as a song is set as favorite, all others are set to non-favorite) 
 
